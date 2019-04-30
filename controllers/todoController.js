@@ -17,13 +17,13 @@ module.exports = function (app) {
     })
     app.post('/todo', urlencodedParser, function (req, res, next) {//修改TODO列表
         data.push(req.body)//把前台传过来的bodypush进data里面去
-        res.send(data)
+        res.send(data)//这里随便写什么,因为是刷新页面的.最后都回到上面的get请求中去
     })
     app.delete('/todo/:item', function (req, res, next) {//删除TODO
         data = data.filter(function(todo){
             return todo.item.replace(/ /g, "-")!==req.params.item
             //首先过滤,如果不相等的话就把这个todo返回到新数组.如果相等的话,就是false,就不会返回,相当于删除了,
         })
-        res.send('3')
+        res.send('3')//这里随便写什么,因为是刷新页面的.最后都回到上面的get请求中去
     })
 }
